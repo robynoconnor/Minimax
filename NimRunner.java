@@ -34,7 +34,8 @@ public class NimRunner {
             return -1; 
         }
 
-        else {
+        //recursive step 
+        else { 
             List<Integer> scores = new ArrayList<Integer>(); 
             for (int p=1; p<4; p++) { //loop through possible moves 
                 //for each move, call minimax using opposite turn and new state 
@@ -63,19 +64,19 @@ public class NimRunner {
         }
     }
 
-    public static int getXMove(int pieces) { //returns the pieces taken in the move
-        return bestMove(pieces, true); //player x wants to make the best move for them
+    public static int getXMove(int state) { //returns the pieces taken in the move
+        return bestMove(state, true); //player x wants to make the best move for them
     }
 
-    public static int getYMove(int pieces) { //returns the pieces taken in the move
-        return bestMove(pieces, false); //player y wants to make the best move for them 
+    public static int getYMove(int state) { //returns the pieces taken in the move
+        return bestMove(state, false); //player y wants to make the best move for them 
     }
 
     public static int bestMove(int state, boolean myTurn) { //returns how many pieces you want to take 
         int score =0; //will hold the score given by each move
         for (int p=1; p<4; p++) { //loop through possible moves 
                 if (p<=state) {
-                    score = minimax(state-p, myTurn); //call minimax to test that move and save to score
+                    score = minimax(state-p, !myTurn); //call minimax to test that move and save to score
                     if (myTurn && score ==1) {
                         return p; 
                     }
@@ -84,8 +85,8 @@ public class NimRunner {
                     }
                 }
             } 
-        // if you never get 1 or -1 (depending on whose turn it is), return a random move
-        return 2; 
+        // if you never get 1 or -1 (depending on whose turn it is), return 1
+        return 1; 
     }
 
     //OPTIONAL public static int getUserMove () {
