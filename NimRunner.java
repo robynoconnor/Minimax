@@ -6,7 +6,7 @@ public class NimRunner {
     }   
     
     public static boolean runGame() { //returns true if x wins and returns false if y wins 
-        int pieces = 4; //OPTIONAL: change to make an array (ex. {1,3,5,7})
+        int pieces = 4;
         boolean Xwins = true; 
 
         while (pieces > 0) {
@@ -89,16 +89,4 @@ public class NimRunner {
         return 1; 
     }
 
-    //OPTIONAL public static int getUserMove () {
-
-    //}
-
-    //pseudocode to generate an arraylist of arraylists for all possibe moves (getPossibleMoves)
-    //to be used 
-        // 1) set up moves (ArrayList(ArrayList int))
-        // 2) for loop to index through state which represents each pile 
-        // 3) within that another for loop/while loop to index through the pieces in each pile (represents number of possible pieces you can take from THIS pile )
-        // 4) create an arraylist (int) which represents one move
-        // 5) At the index you are at in state (pile index), add the numbver of pieces 
-        // 6) Add one move (arrayList (int)) to moves (big arraylist)
-}
+   
